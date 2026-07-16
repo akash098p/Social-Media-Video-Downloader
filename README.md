@@ -109,6 +109,30 @@ Now open in browser:
 
 ------------------------------------------------------------------------
 
+## 3️⃣ Quick Run with a Batch File (Windows)
+Instead of opening multiple terminals manually, you can automate the process with a batch file.
+
+1. Create a new file named `run.bat` in the root folder of your project (same level as `backend.py`).
+2. Paste the following code inside it:
+
+```batch
+@echo off
+REM Activate virtual environment and run Uvicorn in the first window
+start cmd /k "venv\Scripts\activate && uvicorn backend:app --reload --port 8000"
+
+REM Open a new command window for the static server
+start cmd /k "venv\Scripts\activate && python -m http.server 8080 --directory static"
+
+REM Launch the browser pointing to the static server
+start "" [http://127.0.0.1:8080](http://127.0.0.1:8080)
+```
+---
+
+### 💡 A quick tip for your script:
+In your batch script, you are running `venv\Scripts\activate` before launching the Python HTTP server. Since `python -m http.server` is a built-in module that doesn't rely on the dependencies installed inside your virtual environment, activating `venv` for the frontend window isn't strictly necessary. It won't break anything, but keeping it as `start cmd /k "python -m http.server 8080 --directory static"` would make it slightly cleaner!
+
+------------------------------------------------------------------------
+
 # 📂 Downloaded Files
 
 All downloaded videos/audio files are stored in:
