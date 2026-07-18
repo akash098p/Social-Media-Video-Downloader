@@ -1,21 +1,21 @@
 # 🎬 Social Media Video Downloader
 
 <p align="center">
-  <img src="https://img.shields.io/github/stars/akash098p/Social-Media-Video-Downloader?style=for-the-badge&color=FFE15D&logo=github" alt="GitHub stars">
-  <img src="https://img.shields.io/github/forks/akash098p/Social-Media-Video-Downloader?style=for-the-badge&color=93B5C6&logo=github" alt="GitHub forks">
-  <img src="https://img.shields.io/github/license/akash098p/Social-Media-Video-Downloader?style=for-the-badge&color=E4BAD4" alt="License">
-  <br>
   <img src="https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi&logoColor=white" alt="FastAPI">
   <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-</p>
 
 A full-featured Social Media like YouTube, Instagram, Facebook, X(Twitter) video downloader built using **FastAPI + yt-dlp**.
 
-This project allows users to: - 🎥 Download videos in all available
-qualities (144p to 4K) - 🎵 Download audio-only formats - 🔄 Track
-real-time download progress - ❌ Cancel downloads - 📜 View download
-history - 📂 Automatically save files locally
+This project allows users to: 
+- 🎥 Download videos in all available qualities (144p to 4K) 
+- 🎵 Download audio-only formats
+- 🔄 Track real-time download progress
+- ❌ Cancel downloads
+- 📜 View download history
+- 📂 Automatically save files locally
+
+</p>
 
 ------------------------------------------------------------------------
 
