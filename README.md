@@ -45,7 +45,9 @@ After cloning, your project should look like this:
 # 💻 Preview
 
 <p align="center">
-  <img src="media/SMD.mp4">
+  <video src="media/SMD.mp4" controls width="100%" max-width="600px">
+    Your browser does not support the video tag.
+  </video>
 </p>
 
 ------------------------------------------------------------------------
