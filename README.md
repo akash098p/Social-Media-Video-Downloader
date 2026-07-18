@@ -19,6 +19,16 @@ This project allows users to:
 
 ------------------------------------------------------------------------
 
+# 💻 Preview
+
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/66222d99-e687-4578-bde0-2bdc36caa4a2" controls width="100%">
+    Your browser does not support the video tag.
+  </video>
+</p>
+
+------------------------------------------------------------------------
+
 # 📁 Project Structure
 
 After cloning, your project should look like this:
@@ -39,15 +49,6 @@ After cloning, your project should look like this:
     └── venv/             (NOT uploaded to GitHub)
 
 ⚠ Important: - `venv/` not uploaded. - `downloads/` not uploaded. - These are ignored using `.gitignore`.
-
-------------------------------------------------------------------------
-
-# 💻 Preview
-
-
-
-
-
 
 ------------------------------------------------------------------------
 
