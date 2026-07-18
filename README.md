@@ -22,7 +22,7 @@ This project allows users to:
 # 💻 Preview
 
 <p align="center">
-  <video src="https://github.com/user-attachments/assets/66222d99-e687-4578-bde0-2bdc36caa4a2" controls width="100%">
+  <video src="https://github.com/user-attachments/assets/66222d99-e687-4578-bde0-2bdc36caa4a2" controls width="300" style="max-width: 100%;">
     Your browser does not support the video tag.
   </video>
 </p>
