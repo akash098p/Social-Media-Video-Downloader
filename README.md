@@ -35,7 +35,7 @@ After cloning, your project should look like this:
 # 💻 Preview
 
 <p align="center">
-  <img src="https://i.postimg.cc/jq4Yw0Ft/SMDPreview.png" width="100%">
+  <img src="https://i.postimg.cc/dtVq0FT6/SMD-demo.png" width="100%">
 </p>
 
 ------------------------------------------------------------------------
