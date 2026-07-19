@@ -192,9 +192,9 @@ This folder is automatically created when the backend runs.
 
 ------------------------------------------------------------------------
 
-# 📄 License
+# 🪪 License
 
-This project is licensed under the MIT License.
+This project is released under the [MIT License](LICENSE).
 
 ------------------------------------------------------------------------
 
