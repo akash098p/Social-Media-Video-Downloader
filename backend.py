@@ -24,7 +24,11 @@ history = []
 # ---------------- INFO (ALL QUALITIES + EMOJIS) ----------------
 @app.get("/info")
 def info(url: str):
-    with yt_dlp.YoutubeDL({"skip_download": True, "quiet": True}) as ydl:
+    with yt_dlp.YoutubeDL({
+        "skip_download": True,
+        "quiet": True,
+        "js_runtimes": {"node": {}},
+    }) as ydl:
         d = ydl.extract_info(url, download=False)
 
     formats = []
@@ -83,6 +87,18 @@ def info(url: str):
 
 # ---------------- WORKER ----------------
 def worker(job_id, url, fmt):
+    download_errors = []
+
+    class DownloadLogger:
+        def debug(self, message):
+            pass
+
+        def warning(self, message):
+            pass
+
+        def error(self, message):
+            download_errors.append(message)
+
     def hook(d):
         if cancel_flags.get(job_id):
             raise Exception("cancelled")
@@ -101,21 +117,33 @@ def worker(job_id, url, fmt):
         "restrictfilenames": True,
         "merge_output_format": "mp4",
         "progress_hooks": [hook],
+        "logger": DownloadLogger(),
+        "js_runtimes": {"node": {}},
         "quiet": True,
         "noplaylist": False
     }
 
-    with yt_dlp.YoutubeDL(opts) as ydl:
-        ydl.download([url])
+    try:
+        with yt_dlp.YoutubeDL(opts) as ydl:
+            result = ydl.download([url])
 
-    file = sorted(
-        os.listdir(DOWNLOAD_DIR),
-        key=lambda x: os.path.getmtime(os.path.join(DOWNLOAD_DIR, x))
-    )[-1]
+        if result:
+            raise RuntimeError(download_errors[-1] if download_errors else "yt-dlp could not download this video")
 
-    jobs[job_id]["status"] = "done"
-    jobs[job_id]["file"] = file
-    history.append(file)
+        file = sorted(
+            os.listdir(DOWNLOAD_DIR),
+            key=lambda x: os.path.getmtime(os.path.join(DOWNLOAD_DIR, x))
+        )[-1]
+
+        jobs[job_id]["status"] = "done"
+        jobs[job_id]["file"] = file
+        history.append(file)
+    except Exception as exc:
+        if cancel_flags.get(job_id):
+            jobs[job_id]["status"] = "cancelled"
+        else:
+            jobs[job_id]["status"] = "error"
+            jobs[job_id]["error"] = str(exc) or "Download failed"
 
 # ---------------- DOWNLOAD ----------------
 @app.post("/download")
