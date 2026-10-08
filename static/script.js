@@ -121,6 +121,10 @@ function createActiveJob(jobId){
 
       // ✅ ADD TO HISTORY UI
       addToHistory(d.file);
+    }else if(d.status==="error"||d.status==="cancelled"){
+      clearInterval(interval);
+      div.remove();
+      showToast(d.status==="cancelled"?"Download cancelled":d.error||"Download failed");
     }
   },1000);
 
