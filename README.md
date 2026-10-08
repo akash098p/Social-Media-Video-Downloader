@@ -57,6 +57,7 @@ After cloning, your project should look like this:
 
 -   Python 3.9 or higher
 -   pip
+-   Node.js (available on `PATH`) for YouTube JavaScript challenge support
 
 Check Python version:
 
